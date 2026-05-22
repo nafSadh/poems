@@ -12,9 +12,9 @@ warm, with some sort of underlying understanding built into the fabric. It is
 an understanding chair, accommodating chair. It accommodates him in a way his
 former partner didn't.
 
-The couch cushions still have indents of him and his ex. It is a mystery how his
-ex, Lexi, managed to put her dents on the cushions; because she never even saw
-this chair. Yannick bought it after he got his new place. It was his first major
+The chair still have indents of him and his ex. It is a mystery how his ex,
+Lexi, managed to put her dents on the cushions; because she never even saw this
+chair. Yannick bought it after he got his new place. It was his first major
 luxury purchase after he left home.
 
 Yannick looks outside through his windows, he has amazing views of the city;
@@ -68,3 +68,25 @@ are closed, bars are opening though. Bars bar fun. Bars also bar sorrow, Sorrel.
 Sun still has an hour's worth of burning to do, so Yannick can just roam, with
 some music on. But he definitely wants some caffeine. Such a difficult dilemma.
 "Life is very difficult" - Yannick tells himself.
+
+---
+
+Yannick pushes the next track button, and an old familiar track starts playing.
+He has a rule, you never skip "Castle of Glass" and you must play it twice in
+a row. He has the same rule for a few other tracks, like Fragile by Sting. This
+track was also one of Lexi's favorites. So, Chester B. sings Lexi into the sound
+cave of Yannick's soul. Sorrel sneaks in. Sorrel has its own emotions, both
+heavy and joyful. Sorrel enjoys the soothing song. Yannick lets Sorrel do
+its things, without paying much attention to it. But he knows, Sorrel is coming
+with its exquisite platter in a bit. The glass castle breaks into pieces, just
+like the teardrops rained once from the tearcave of Yannick. One more time and
+then some other track. Yannick tells himself, maybe Usher's Yeah will be good.
+
+He waits. Sorrel presents its first kick from the platter, Yannick sighs, takes
+a deep breath and wishes he had lead instead of blood in his veins - that will
+numb the feelings, will it not?
+
+Yannick stares outside, his eyes are getting blurred. Nostrils expanding and
+breaths are getting heavier. He feels a void that never existed - it is a very
+strange feeling. He picks up his phone, opens Instagram, time to watch some
+reels and send a very curated subset to his friends.
