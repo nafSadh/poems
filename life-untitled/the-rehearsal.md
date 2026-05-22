@@ -1,6 +1,6 @@
 # The Rehearsal
 
-<date: March 17, 2026 />
+<by: Sadh /><date: March 17, 2026 /><status: draft />
 
 The man at table six is typing under the table. She can tell because his thumbs
 move and his eyes go soft in a way that doesn't match the conversation. She

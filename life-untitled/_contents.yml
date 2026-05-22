@@ -21,3 +21,5 @@ contents:
     id: crawler
   - story: "Title TBD"
     id: title-tbd-santa-cruz
+  - story: "Things"
+    id: things
