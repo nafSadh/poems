@@ -52,6 +52,7 @@
 আমার ভালোবাসা,  
 আজ জানাতে হলো — বিদায়
 
+<!--
 # Translation
 
 ## English Poetic Rewrite
@@ -743,3 +744,4 @@ Of silence stretched between us, stark and clear —
 Farewell, my love. Farewell, my hope, my fear.
 
 ---
+-->

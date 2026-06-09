@@ -35,10 +35,10 @@
 31. [Saratoga Scene](saratoga-scene.md) ~ April 18, 2026
 32. [Barefoot](barefoot.md) ~ April 28, 2026
 33. [Staircase](staircase.md) ~ April 28, 2026
-34. [পরশপাথর](পরশপাথর.md) ~ April–May 2025
-35. [এক টুকরো গগনে গনগনে চাঁদ](এক-টুকরো-গগনে-গনগনে-চাঁদ.md) ~ April 2025
-36. [অন্তিম অনন্ত](অন্তিম-অনন্ত.md) ~ April 29, 2026
-37. [বিদায়, নীহারিকা](বিদায়-নীহারিকা.md)
+34. [পরশপাথর](poroshpathor.md) ~ April–May 2025
+35. [এক টুকরো গগনে গনগনে চাঁদ](ek-tukro-gogone-gongone-chad.md) ~ April 2025
+36. [অন্তিম অনন্ত](ontim-ononto.md) ~ April 29, 2026
+37. [বিদায়, নীহারিকা](biday-niharika.md)
 38. [Amber Ablution](amber-ablution.md) ~ Oct 04, 2025
 39. [View from My Couch](view-from-my-couch.md) ~ Oct 05, 2025
 40. [L's Dancefloor](ls-dancefloor.md) ~ Feb 18, 2026

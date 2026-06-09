@@ -127,20 +127,20 @@ contents:
   - section: "addenda · prelude to the conversation"
     entries:
       - poem: "পরশপাথর"
-        id: পরশপাথর
+        id: poroshpathor
         lang: bn
         art: art-heron-pond
       - poem: "এক টুকরো গগনে গনগনে চাঁদ"
-        id: এক-টুকরো-গগনে-গনগনে-চাঁদ
+        id: ek-tukro-gogone-gongone-chad
         lang: bn
         art: art-moon-tea
       - poem: "অন্তিম অনন্ত"
-        id: অন্তিম-অনন্ত
+        id: ontim-ononto
         lang: bn
         art: art-heron-pond
 
-      - poem: "বিদায়, নীহারিকা"
-        id: বিদায়-নীহারিকা
+      - poem: "বিদায়, নীহারিকা"
+        id: biday-niharika
         lang: bn
         art: art-travel-bag
   - section: "addenda · other side of the conversation"
