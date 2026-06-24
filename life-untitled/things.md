@@ -11,7 +11,7 @@ holds everything he needs held. The chair feels like a hug, warm, with some sort
 of underlying understanding built into the fabric. It is an understanding chair,
 accommodating chair. It accommodates him in a way his former partner didn't.
 
-The chair still have indents of him and his ex. It is a mystery how his ex,
+The chair still has indents of him and his ex. It is a mystery how his ex,
 Lexi, managed to put her dents on the cushions; because she never even saw this
 chair. Cael bought it after he got his new place. It was his first major
 luxury purchase after he left home.
@@ -35,11 +35,11 @@ But when Cael escaped his former life, left Lexi, left his carefully curated
 home, he only had his work backpack and something else - a subdued sense of
 loss, sorrow and escape - seeds of Sorrel maybe.
 
-Cael picks up his cup of smoking hot cup of tea. He holds a beautiful purple
-handmade cup he got from a art fair. I has an uneven shape, like tinty tiles
+Cael picks up his smoking hot cup of tea. He holds a beautiful purple
+handmade cup he got from an art fair. It has an uneven shape, like tiny tiles
 got together to become a cup. He holds the cup the same way the couch holds him.
 A warm, comfy, soothing hold and the cup embraces him back with its elegant
-aroma. His peacock chair dosn't have a cup holder built in, it only has Cael
+aroma. His peacock chair doesn't have a cup holder built in, it only has a Cael
 holder. So, he has to hold the cup carefully with his two hands when his chair
 swings. He takes a sip, and forgets about Sorrel, for the moment.
 

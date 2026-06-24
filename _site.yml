@@ -42,6 +42,9 @@ collections:
     ill: ill-seconds
     mark: mark-seconds
     corner: the window
+    # Extra filename for this book's full-text dump → /second-seconds/ss.md
+    # (every book also gets /<id>/all.md regardless).
+    dump_alias: ss
     pool:
       - sc-seconds-chair
       - sc-seconds-couch-vista

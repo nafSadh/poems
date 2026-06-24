@@ -161,6 +161,9 @@ def load_collections(site_cfg: dict) -> list[dict]:
         book["mark"] = entry.get("mark", "mark-life")
         book["corner"] = entry.get("corner", "")
         book["pool"] = entry.get("pool") or []
+        # Optional extra filename for this book's full-text dump (e.g. `ss` →
+        # /<id>/ss.md alongside the always-written /<id>/all.md).
+        book["dump_alias"] = entry.get("dump_alias")
         result.append(book)
     return result
 
@@ -717,6 +720,84 @@ def build_poem(templates: dict, site_cfg: dict, collections: list[dict],
     )
 
 
+# ── Full-text dump (one clean-text .md per book) ───────────────────────────────
+# Concatenates a whole book into a single markdown file so /<id>/all.md (and any
+# configured alias, e.g. second-seconds → ss.md) holds the entire book as plain
+# reading text. Regenerated on every build; lives only under _site/.
+DUMP_TAG_RE = re.compile(r"<[a-zA-Zঀ-৿][a-zA-Z0-9ঀ-৿-]*:[^<>]*?/>")
+
+
+def _demote_heading(m: "re.Match[str]") -> str:
+    """Push an ATX heading down two levels (cap at 6) so a piece's `# Title`
+    lands at H3 under the book (H1) and section (H2)."""
+    n = min(len(m.group(1)) + 2, 6)
+    return "#" * n + m.group(2)
+
+
+def extract_dump_text(path: Path, fallback_title: str) -> str:
+    """Clean reading-text markdown for one piece: title + body, with YAML front
+    matter, HTML comments (the `<!-- draft -->` notes), and every `<tag:…/>` meta
+    line (by / date / status …) removed. The poem escapes `\\-` and `\\!` are
+    resolved; two-space hard breaks are kept so it still renders as markdown."""
+    text = path.read_text(encoding="utf-8")
+    text = re.sub(r"^---[\s\S]*?---\s*", "", text)        # YAML front matter
+    text = re.sub(r"<!--[\s\S]*?-->", "", text)           # HTML comments / drafts
+    text = DUMP_TAG_RE.sub("", text)                      # <by:/> <date:/> etc.
+    text = text.replace("\\-", "—").replace("\\!", "!")   # markdown poem escapes
+    text = re.sub(r"^(#{1,6})(\s)", _demote_heading, text, flags=re.M)
+    text = re.sub(r"\n{3,}", "\n\n", text).strip()
+    if not text.startswith("#"):
+        text = f"### {fallback_title}\n\n{text}".strip()
+    return text
+
+
+def build_text_dump(site_cfg: dict, collections: list[dict], idx: int) -> str:
+    """Whole book → one clean-text markdown document, in _contents.yml order,
+    with section headers and a rule between consecutive pieces."""
+    site = site_cfg["site"]
+    c = collections[idx]
+    pages = [p for p in c["contents"] if content_is_page(p)]
+    roman = ROMAN[idx] if idx < len(ROMAN) else str(idx + 1)
+    cnt = len(pages)
+    word = count_word(pages, cnt) if pages else "poems"
+
+    head = f'# {c["title"]}'
+    if c.get("subtitle"):
+        head += f'\n*{c["subtitle"]}*'
+    head += (
+        f"\n\n> Book {roman} · {cnt} {word} · full text. "
+        f"Auto-generated on each build from "
+        f"https://{site['domain']}/{c['id']}/ — do not edit by hand."
+    )
+    out: list[str] = [head]
+
+    if not pages:
+        out.append("_— this book is still being written —_")
+        return "\n\n".join(out) + "\n"
+
+    current_section: object = object()  # sentinel — never matches first page
+    prev_was_piece = False
+    for p in pages:
+        sec = p.get("_section")
+        if sec != current_section:
+            current_section = sec
+            if sec and sec != "intro":
+                out.append(f"## {sec}")
+                prev_was_piece = False  # section header is its own divider
+        _, p_title = item_type_and_title(p)
+        md_path = SRC / c["id"] / f'{p["id"]}.md'
+        if md_path.exists():
+            block = extract_dump_text(md_path, p_title)
+        else:
+            block = f"### {p_title}\n\n_— text not available —_"
+        if prev_was_piece:
+            out.append("---")
+        out.append(block)
+        prev_was_piece = True
+
+    return "\n\n".join(out) + "\n"
+
+
 # ── Writers ───────────────────────────────────────────────────────────────────
 def write(path: Path, content: str) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
@@ -777,7 +858,23 @@ def main() -> None:
 
     copy_static()
 
+    # Full-text dumps: one clean-text .md per book at /<id>/all.md, plus any
+    # configured alias (second-seconds → ss.md). Written after copy_static so the
+    # raw-source .md copy can't clobber them.
+    dump_count = 0
+    for ci, c in enumerate(collections):
+        dump = build_text_dump(site_cfg, collections, ci)
+        write(OUT / c["id"] / "all.md", dump)
+        dump_count += 1
+        alias = c.get("dump_alias")
+        if alias:
+            write(OUT / c["id"] / f"{alias}.md", dump)
+            print(f"  dump: {c['id']}/all.md (+ {alias}.md)")
+        else:
+            print(f"  dump: {c['id']}/all.md")
+
     print(f"  pages: {total_pages}")
+    print(f"  dumps: {dump_count}")
     print(f"  done.")
 
 
