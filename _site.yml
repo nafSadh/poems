@@ -28,6 +28,9 @@ collections:
     ill: ill-sulol
     mark: mark-sulol
     corner: a small bird
+    # dump_alias: full-text dump of this book, served at the site root as
+    # /<alias>.md (e.g. /s.md). Every book sets one; they must be unique.
+    dump_alias: s
     pool:
       - sc-sulol-branch
       - sc-sulol-gangchil
@@ -42,8 +45,6 @@ collections:
     ill: ill-seconds
     mark: mark-seconds
     corner: the window
-    # Extra filename for this book's full-text dump → /second-seconds/ss.md
-    # (every book also gets /<id>/all.md regardless).
     dump_alias: ss
     pool:
       - sc-seconds-chair
@@ -59,6 +60,7 @@ collections:
     ill: ill-ssol
     mark: mark-ssol
     corner: a friend
+    dump_alias: sso
     pool:
       - sc-ssol-flags
       - sc-ssol-gears
@@ -73,6 +75,7 @@ collections:
     ill: ill-life
     mark: mark-life
     corner: the sand
+    dump_alias: lu
     pool:
       - sc-life-book
       - sc-life-bridge
@@ -87,6 +90,7 @@ collections:
     ill: ill-other
     mark: mark-other
     corner: ink drops
+    dump_alias: os
     pool:
       - sc-other-alphabets
       - sc-other-crane

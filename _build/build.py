@@ -161,8 +161,8 @@ def load_collections(site_cfg: dict) -> list[dict]:
         book["mark"] = entry.get("mark", "mark-life")
         book["corner"] = entry.get("corner", "")
         book["pool"] = entry.get("pool") or []
-        # Optional extra filename for this book's full-text dump (e.g. `ss` →
-        # /<id>/ss.md alongside the always-written /<id>/all.md).
+        # Filename stem for this book's full-text dump, served at the site root,
+        # e.g. `ss` → /ss.md.
         book["dump_alias"] = entry.get("dump_alias")
         result.append(book)
     return result
@@ -721,9 +721,9 @@ def build_poem(templates: dict, site_cfg: dict, collections: list[dict],
 
 
 # ── Full-text dump (one clean-text .md per book) ───────────────────────────────
-# Concatenates a whole book into a single markdown file so /<id>/all.md (and any
-# configured alias, e.g. second-seconds → ss.md) holds the entire book as plain
-# reading text. Regenerated on every build; lives only under _site/.
+# Concatenates a whole book into a single markdown file served at the site root
+# under the book's `dump_alias` (e.g. second-seconds → /ss.md), holding the whole
+# book as plain reading text. Regenerated on every build; lives only under _site/.
 DUMP_TAG_RE = re.compile(r"<[a-zA-Zঀ-৿][a-zA-Z0-9ঀ-৿-]*:[^<>]*?/>")
 
 
@@ -858,20 +858,23 @@ def main() -> None:
 
     copy_static()
 
-    # Full-text dumps: one clean-text .md per book at /<id>/all.md, plus any
-    # configured alias (second-seconds → ss.md). Written after copy_static so the
-    # raw-source .md copy can't clobber them.
+    # Full-text dumps: one clean-text .md per book, served at the site root under
+    # the book's `dump_alias` (e.g. second-seconds → /ss.md). Written after
+    # copy_static so the raw-source .md copy can't clobber them. Aliases must be
+    # unique across books (they share the root namespace).
     dump_count = 0
+    seen_aliases: dict[str, str] = {}
     for ci, c in enumerate(collections):
-        dump = build_text_dump(site_cfg, collections, ci)
-        write(OUT / c["id"] / "all.md", dump)
-        dump_count += 1
         alias = c.get("dump_alias")
-        if alias:
-            write(OUT / c["id"] / f"{alias}.md", dump)
-            print(f"  dump: {c['id']}/all.md (+ {alias}.md)")
-        else:
-            print(f"  dump: {c['id']}/all.md")
+        if not alias:
+            print(f"  [skip dump] {c['id']}: no dump_alias", file=sys.stderr)
+            continue
+        if alias in seen_aliases:
+            sys.exit(f"duplicate dump_alias '{alias}' on {c['id']} and {seen_aliases[alias]}")
+        seen_aliases[alias] = c["id"]
+        write(OUT / f"{alias}.md", build_text_dump(site_cfg, collections, ci))
+        dump_count += 1
+        print(f"  dump: /{alias}.md  ({c['id']})")
 
     print(f"  pages: {total_pages}")
     print(f"  dumps: {dump_count}")
