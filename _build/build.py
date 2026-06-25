@@ -805,10 +805,11 @@ def write(path: Path, content: str) -> None:
 
 
 def copy_static() -> None:
-    """Copy raw assets to _site/: styles.css, CNAME, .nojekyll, and raw .md files
-    (so /second-seconds/lull.md still resolves for anyone who wants the source)."""
+    """Copy raw assets to _site/: styles.css, CNAME, .nojekyll, robots.txt, and
+    raw .md files (so /second-seconds/lull.md still resolves for anyone who wants
+    the source)."""
     shutil.copy2(TEMPLATES / "styles.css", OUT / "styles.css")
-    for name in ("CNAME", ".nojekyll"):
+    for name in ("CNAME", ".nojekyll", "robots.txt"):
         src = SRC / name
         if src.exists():
             shutil.copy2(src, OUT / name)

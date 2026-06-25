@@ -13,6 +13,7 @@ on:
       - ".github/workflows/deploy.yml"
       - "CNAME"
       - ".nojekyll"
+      - "robots.txt"
   workflow_dispatch:
 
 # Permissions required by actions/deploy-pages
