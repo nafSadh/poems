@@ -8,6 +8,7 @@ process so the watch loop can stay in the foreground.
 Usage: python3 _build/serve.py [port]   (default 8000)
 """
 import os
+import socket
 import subprocess
 import sys
 import time
@@ -37,6 +38,37 @@ def build() -> None:
     subprocess.run([sys.executable, str(BUILD)], cwd=SRC, check=False)
 
 
+def port_is_free(port: int) -> bool:
+    """True if we can bind to the port (matches http.server's reuse behavior)."""
+    with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
+        s.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+        try:
+            s.bind(("", port))
+            return True
+        except OSError:
+            return False
+
+
+def pick_port(preferred: int, tries: int = 20) -> int:
+    """Return `preferred` if free, else the next open port. Warn on fallback."""
+    for port in range(preferred, preferred + tries):
+        if port_is_free(port):
+            if port != preferred:
+                print(
+                    f"⚠ port {preferred} is in use — using {port} instead",
+                    flush=True,
+                )
+                print(
+                    f"  (to free {preferred}:  lsof -ti :{preferred} | xargs kill)",
+                    flush=True,
+                )
+            return port
+    sys.exit(
+        f"✗ no free port in {preferred}–{preferred + tries - 1}; "
+        f"free one with:  lsof -ti :{preferred} | xargs kill"
+    )
+
+
 def watch_loop() -> None:
     last = collect_mtimes()
     print(f"→ watching {len(last)} files (Ctrl-C to stop)", flush=True)
@@ -58,14 +90,15 @@ def watch_loop() -> None:
 
 
 def main() -> None:
-    port = sys.argv[1] if len(sys.argv) > 1 else "8000"
+    requested = int(sys.argv[1]) if len(sys.argv) > 1 else 8000
+    port = pick_port(requested)
 
     print("→ initial build…", flush=True)
     build()
 
     print(f"→ serving http://localhost:{port}/", flush=True)
     server = subprocess.Popen(
-        [sys.executable, "-m", "http.server", port, "-d", str(SRC / "_site")]
+        [sys.executable, "-m", "http.server", str(port), "-d", str(SRC / "_site")]
     )
 
     try:
