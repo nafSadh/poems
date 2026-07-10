@@ -15,7 +15,6 @@ contents:
       - poem: "A Settlement"
         id: a-settlement
         art: art-winding-path
-
       - poem: "Shattered Sweetheart"
         id: shattered-sweetheart
         art: art-broken-heart
@@ -74,7 +73,6 @@ contents:
       - poem: "Wing"
         id: wing
         art: art-wing
-
       - poem: "shadow's edge"
         id: shadows-edge
         art: art-bicycle-tracks
@@ -86,6 +84,9 @@ contents:
       - poem: "Freedom to Belong"
         id: freedom-to-belong
         art: art-strobe-lights
+      - poem: "The Disappearing Cage"
+        id: disappearing-cage
+        art: art-bird-cage
       - poem: "The Ice-cream Boy"
         id: ice-cream-boy
         art: art-ice-cream-cone
@@ -110,7 +111,6 @@ contents:
       - poem: "Worlds"
         id: worlds
         art: art-brain-sparkling
-
       - poem: "Company"
         id: company
         art: art-candle
