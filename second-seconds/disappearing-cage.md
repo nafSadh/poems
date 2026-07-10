@@ -1,6 +1,6 @@
 # The Disappearing Cage
 
-<by: Sadh /><date: Jul 10, 2025 />
+<by: Sadh /><date: Jul 10, 2026 />
 
 Fourteen years ago, I wrote about a cage  
 I wrote a poem.  
