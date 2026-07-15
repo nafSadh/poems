@@ -21,6 +21,6 @@ To escape it.
 
 Still.  
 Still, I keep floating  
-On the same hazy spot  
+On this same hazy spot  
 Between the mist and mystery:  
 Borderlands of desire, despair, and joy.

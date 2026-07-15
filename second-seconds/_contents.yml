@@ -96,6 +96,9 @@ contents:
       - poem: "The Tulip"
         id: tulip
         art: art-fallen-petal
+      - poem: "A Meeting"
+        id: a-meeting
+        art: art-dry-vine
       - poem: "A very good Bird"
         id: good-bird
         art: art-bird-cube
@@ -138,7 +141,6 @@ contents:
         id: ontim-ononto
         lang: bn
         art: art-heron-pond
-
       - poem: "বিদায়, নীহারিকা"
         id: biday-niharika
         lang: bn
