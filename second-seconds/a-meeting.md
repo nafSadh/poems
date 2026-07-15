@@ -18,3 +18,5 @@ and I left
 it was a meeting
 lasted a minute
 and an eternity
+
+> inspired by [this photo](https://www.instagram.com/p/DazYonlFOaI/) I took
