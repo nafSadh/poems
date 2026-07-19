@@ -86,7 +86,7 @@ contents:
         art: art-strobe-lights
       - poem: "The Disappearing Cage"
         id: disappearing-cage
-        art: art-bird-cage
+        art: art-fading-cage
       - poem: "The Ice-cream Boy"
         id: ice-cream-boy
         art: art-ice-cream-cone
@@ -98,7 +98,7 @@ contents:
         art: art-fallen-petal
       - poem: "A Meeting"
         id: a-meeting
-        art: art-dry-vine
+        art: art-birds-on-snag
       - poem: "A very good Bird"
         id: good-bird
         art: art-bird-cube
@@ -140,7 +140,7 @@ contents:
       - poem: "অন্তিম অনন্ত"
         id: ontim-ononto
         lang: bn
-        art: art-heron-pond
+        art: art-boxed-monument
       - poem: "বিদায়, নীহারিকা"
         id: biday-niharika
         lang: bn
@@ -159,3 +159,6 @@ contents:
       - poem: "Shrimp Wonton"
         id: shrimp-wonton
         art: art-wonton-bowl
+      - poem: "Guava Danish"
+        id: guava-danish
+        art: art-guava-danish
