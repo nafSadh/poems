@@ -7,4 +7,5 @@ set -euo pipefail
 
 PORT="${1:-8765}"
 cd "$(dirname "$0")"
+# exec python3 _build/build.py
 exec python3 _build/serve.py "$PORT"

@@ -79,6 +79,9 @@ contents:
       - poem: "Stable"
         id: stable
         art: art-horse
+      - poem: ".depleted."
+        id: depleted
+        art: art-storm-on-a-salver
   - section: solvent solitude
     entries:
       - poem: "Freedom to Belong"
@@ -147,7 +150,8 @@ contents:
         art: art-travel-bag
       - poem: নিনাদের প্রতিধ্বনি
         id: ninader-protiddhoni
-        lang: bn  
+        lang: bn
+        art: art-echo-ruins
   - section: "addenda · other side of the conversation"
     entries:
       - poem: "Amber Ablution"
