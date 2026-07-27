@@ -145,6 +145,9 @@ contents:
         id: biday-niharika
         lang: bn
         art: art-travel-bag
+      - poem: নিনাদের প্রতিধ্বনি
+        id: ninader-protiddhoni
+        lang: bn  
   - section: "addenda · other side of the conversation"
     entries:
       - poem: "Amber Ablution"
