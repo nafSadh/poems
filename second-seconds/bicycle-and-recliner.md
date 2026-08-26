@@ -36,7 +36,7 @@ Both give us something.
 
 That bicycle is imaginary.  
 I just put it there.  
-But nobody's stopping me  
+But nobody is stopping me  
 from thinking about the bicycle,  
 and reaching for it.  
 Except... I like my recliner.
